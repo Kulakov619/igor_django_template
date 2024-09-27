@@ -44,5 +44,7 @@
 
 11) Modified file urls.py into app directory
 
+12) Create html files
+
 
 
