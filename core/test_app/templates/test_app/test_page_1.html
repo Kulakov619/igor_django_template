@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Привет 2.0
-</body>
-</html>
+{% extends 'test_app/temp.html'%}
+{% load static %}
+
+{% block title %}
+Новая
+{% endblock %}
+
+{% block body %}
+
+<main role="main" class="container" style="margin-bottom: 50px">
+    <div class="row">
+        <div class="col col-12 my-3 p-3 border-gray bg-white rounded shadow-sm blk-std">
+            <div class="row">
+                <div class="col-2 text-center">
+                    <img class="m-4" src="{% static 'img/new.png' %}" alt="" width="500" height="500">
+                </div>
+                <div class="col-10 text-center"><p>Это задание из яндекс лицея</p></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

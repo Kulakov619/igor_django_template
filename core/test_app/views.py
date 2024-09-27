@@ -7,3 +7,4 @@ class TestPage(TemplateView):
 
 class TestPageNew(TemplateView):
     template_name = 'test_app/test_page_1.html'
+
