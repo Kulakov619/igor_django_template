@@ -1,5 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 from .models import TestModel
+from .forms import TestModelForm
 
 
 class TestPage(TemplateView):
@@ -14,4 +15,9 @@ class TestPageNew(TemplateView):
         posts = TestModel.objects.all().order_by('name')
         context['posts'] = posts
         return context
+
+
+class CreatePost(CreateView):
+    template_name = 'test_app/form.html'
+    form_class = TestModelForm
 
