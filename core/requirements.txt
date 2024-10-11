@@ -1,0 +1,13 @@
+aiokafka==0.11.0
+asgiref==3.8.1
+async-timeout==4.0.3
+confluent-kafka==2.5.3
+crispy-bootstrap5==2024.10
+Django==5.1.1
+django-crispy-forms==2.3
+kafka-python @ git+https://github.com/dpkp/kafka-python.git@a6d0579d3cadd3826dd364b01bc12a2173139abc
+packaging==24.1
+pillow==10.4.0
+six==1.16.0
+sqlparse==0.5.1
+typing_extensions==4.12.2
