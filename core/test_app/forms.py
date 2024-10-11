@@ -5,5 +5,5 @@ from .models import TestModel
 class TestModelForm(ModelForm):
     class Meta:
         model = TestModel
-        fields = ['name', 'text', 'img']
+        fields = ['id', 'name', 'text', 'img']
 
