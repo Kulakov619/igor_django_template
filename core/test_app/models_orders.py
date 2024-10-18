@@ -15,12 +15,6 @@ class TimeStampedMixin(models.Model):
 
 class User(AbstractUser):
     third_name = models.CharField("отчество", max_length=500, blank=True)
-    role = models.ForeignKey(
-        'Roles',
-        on_delete=models.CASCADE,
-        db_column='role_id',
-        verbose_name=_('role')
-    )
 
     class Meta:
         verbose_name = _('пользователь')
@@ -28,12 +22,23 @@ class User(AbstractUser):
         ordering = ['last_name']
 
 
-class Roles(TimeStampedMixin):
-        name = models.CharField("название", max_length=500)
+class Role(models.TextChoices):
+    TEACHER = 'teacher', _('Teacher')
+    STUDENT = 'student', _('Student')
 
-        class Meta:
-            verbose_name = _('роль')
-            verbose_name_plural = _('роли')
+
+class Roles(TimeStampedMixin):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        db_column='user_id',
+        verbose_name=_('user')
+    )
+    role = models.TextField(_('Role'), choices=Role.choices)
+
+    class Meta:
+        verbose_name = _('роль')
+        verbose_name_plural = _('роли')
 
 
 class Order(TimeStampedMixin):
