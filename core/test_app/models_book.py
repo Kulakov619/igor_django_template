@@ -51,8 +51,8 @@ class Order(TimeStampedMixin):
 
 class Book(TimeStampedMixin):
     name = models.CharField("название", max_length=500)
-    autor = models.ForeignKey(
-        'Autor',
+    author = models.ForeignKey(
+        'Author',
         on_delete=models.CASCADE,
         db_column='autor_id',
         verbose_name=_('autor')
@@ -63,7 +63,7 @@ class Book(TimeStampedMixin):
         verbose_name_plural = _('книги')
 
 
-class Autor(TimeStampedMixin):
+class Author(TimeStampedMixin):
     name = models.CharField("имя", max_length=500)
     surname = models.CharField("фамилия", max_length=500)
     third_name = models.CharField("отчество", max_length=500, blank=True)
