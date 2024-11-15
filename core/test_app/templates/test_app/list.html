@@ -13,7 +13,11 @@
             <div class="row"><b>{{ el.name }}</b></div><hr>
             <div class="row">
                 <div class="col-2 text-center m-4">
+                    {% if el.img %}
                     <img class="m-4" src="/media/{{ el.img }}" alt="" width="180" height="150">
+                    {% else %}
+                    <img class="m-4" src="{% static 'img/photo.png' %}" alt="" width="180" height="150">
+                    {% endif %}
                 </div>
                 <div class="col-8 m-4"><p>{{ el.text }}</p></div>
             </div>

@@ -6,7 +6,7 @@ class TestModel(models.Model):
         'id', unique=True, primary_key=True, editable=False)
     name = models.CharField('name', max_length=20)
     text = models.TextField('text')
-    img = models.ImageField('image', upload_to='images/')
+    img = models.ImageField('image', upload_to='images/', null=True, blank=True)
 
     class Meta:
         verbose_name = "post"
