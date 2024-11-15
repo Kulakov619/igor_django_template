@@ -1,0 +1,22 @@
+{% extends 'test_app/temp.html'%}
+{% load static %}
+
+{% block title %}
+Новая
+{% endblock %}
+
+{% block body %}
+<main role="main" class="container" style="margin-bottom: 50px">
+    <div class="row">
+        <div class="col col-12 my-3 p-3 border-gray bg-white rounded shadow-sm blk-std">
+            <div class="row"><b>{{ object.name }}</b></div><hr>
+            <div class="row">
+                <div class="col-2 text-center m-4">
+                    <img class="m-4" src="/media/{{ object.img }}" alt="" width="180" height="150">
+                </div>
+                <div class="col-8 m-4"><p>{{ object.text }}</p></div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

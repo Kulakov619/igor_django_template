@@ -38,11 +38,11 @@ class DeletePost(DeleteView):
     slug_field = "id"
     slug_url_kwarg = "id"
     template_name = 'test_app/delete.html'
-    form_class = TestModelForm
+    model = TestModel
     success_url = '/'
 
 
-class DetailPost(CreateView):
+class DetailPost(DetailView):
     slug_field = "id"
     slug_url_kwarg = "id"
     template_name = 'test_app/detail.html'

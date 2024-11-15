@@ -7,7 +7,7 @@
 
 {% block body %}
 <main role="main" class="container" style="margin-bottom: 50px">
-    {% for el in posts %}
+    {% for el in object_list %}
     <div class="row">
         <div class="col col-12 my-3 p-3 border-gray bg-white rounded shadow-sm blk-std">
             <div class="row"><b>{{ el.name }}</b></div><hr>
@@ -17,15 +17,15 @@
                 </div>
                 <div class="col-8 m-4"><p>{{ el.text }}</p></div>
             </div>
-            <div class="row">
-                <div class="col-2">
-                    <a href="/">Подробнее</a>
+            <div class="row text-center">
+                <div class="col-4">
+                    <a href="{% url 'detail' el.id %}">Подробнее</a>
                 </div>
-                <div class="col-2">
-                    <a href="/">Обновить</a>
+                <div class="col-4">
+                    <a href="{% url 'update' el.id %}">Обновить</a>
                 </div>
-                <div class="col-2">
-                    <a href="/">Удалить</a>
+                <div class="col-4">
+                    <a href="{% url 'delete' el.id %}" class="text-danger">Удалить</a>
                 </div>
             </div>    
         </div>
