@@ -25,12 +25,14 @@
                 <div class="col-4">
                     <a href="{% url 'detail' el.id %}">Подробнее</a>
                 </div>
+                {% if request.user.is_authenticated %}  
                 <div class="col-4">
                     <a href="{% url 'update' el.id %}">Обновить</a>
                 </div>
                 <div class="col-4">
                     <a href="{% url 'delete' el.id %}" class="text-danger">Удалить</a>
                 </div>
+                {% endif %}
             </div>    
         </div>
     </div>
