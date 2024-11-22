@@ -1,0 +1,42 @@
+<!doctype html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Вход в систему</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+  </head>
+  <body class="text-center">
+<form class="form-signin rounded" method="POST">
+  <h2 class="h3 mb-3 font-weight-normal">Войдите в систему</h2>
+    {{ form|crispy }}
+     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button type="submit" name="add" class="btn btn-outline-success mt-3 me-md-2 text-end">Войти</button>
+     </div>
+  <a href="/register" class="btn btn-link btn-block">Отправить запрос для регистрации</a>
+</form>
+</body>
+</html>
