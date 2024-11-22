@@ -32,6 +32,7 @@
   <body class="text-center">
 <form class="form-signin rounded" method="POST">
   <h2 class="h3 mb-3 font-weight-normal">Войдите в систему</h2>
+    {% csrf_token %}
     {{ form|crispy }}
      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
         <button type="submit" name="add" class="btn btn-outline-success mt-3 me-md-2 text-end">Войти</button>

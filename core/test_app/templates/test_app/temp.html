@@ -16,6 +16,11 @@
                 <a class="p-1 text-dark" href="{% url 'test_page' %}">Главная</a>
                 <a class="p-1 text-dark" href="{% url 'list' %}">Посты</a>
                 <a class="p-1 text-dark" href="{% url 'create' %}">Создать</a>
+                {% if not request.user.is_authenticated %}  
+                <a class="p-1 text-dark" href="{% url 'login' %}">Войти</a>
+                {% else %}    
+                <a class="p-1 text-dark" href="{% url 'logout' %}">Выйти</a>  
+                {% endif %}  
               </nav>
           </div>
      </div>
