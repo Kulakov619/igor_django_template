@@ -22,7 +22,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('test_app.urls'))
+    path('', include('test_app.urls')),
+    path('auth/', include('user_app.urls'))
 ]
 
 
