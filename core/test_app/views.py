@@ -2,6 +2,8 @@ from django.views.generic import TemplateView, CreateView, UpdateView, DeleteVie
 from .models import TestModel
 from .forms import TestModelForm
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 class TestPage(TemplateView):
@@ -19,12 +21,14 @@ class TestPageNew(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class CreatePost(CreateView):
     template_name = 'test_app/form.html'
     form_class = TestModelForm
     success_url = '/'
 
 
+@method_decorator(login_required, name='dispatch')
 class UpdatePost(UpdateView):
     slug_field = "id"
     slug_url_kwarg = "id"
@@ -34,6 +38,7 @@ class UpdatePost(UpdateView):
     success_url = '/'
 
 
+@method_decorator(login_required, name='dispatch')
 class DeletePost(DeleteView):
     slug_field = "id"
     slug_url_kwarg = "id"
