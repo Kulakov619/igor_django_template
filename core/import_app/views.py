@@ -40,6 +40,5 @@ class ImportView(CreateView):
                 o.is_ok = False
         else:
             o.is_ok = False
-            o.log += 'Формат файла неверный'
-        o.save()
+            o.log += 'Формат файла неверный\n'
         return super(ImportView, self).form_valid(form)
