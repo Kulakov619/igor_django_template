@@ -6,6 +6,7 @@ from datetime import date
 from openpyxl import Workbook, load_workbook
 from .models import UploadFile
 from .forms import UploadForm
+from test_app.models import TestModel
 
 
 # Create your views here.
@@ -18,10 +19,27 @@ class ImportView(CreateView):
 
     def form_valid(self, form, **kwargs):
         o = form.save(commit=False)
-        o.save()
+        o.log = ''
         filename = o.file
         wb = load_workbook(filename=filename)
         sheet = wb.active
-        a = sheet.cell(row=9, column=1).value
-        o.is_ok = True
+        if sheet.cell(row=1, column=1).value == 'Название' and sheet.cell(row=1, column=2).value == 'Описание':
+            try:
+                n = 2
+                while sheet.cell(row=n, column=1).value:
+                    post = TestModel(
+                        name=sheet.cell(row=n, column=1).value,
+                        text=sheet.cell(row=n, column=2).value
+                    )
+                    post.save()
+                    o.log += f"Создан пост {sheet.cell(row=n, column=1).value}\n"
+                    n += 1
+                o.is_ok = True
+            except Exception as e:
+                o.log += str(e)
+                o.is_ok = False
+        else:
+            o.is_ok = False
+            o.log += 'Формат файла неверный'
+        o.save()
         return super(ImportView, self).form_valid(form)
