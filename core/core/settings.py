@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'user_app',
     'import_app',
-    'shop_app'
+    'shop_app',
+    'import_export'
 ]
 
 MIDDLEWARE = [
