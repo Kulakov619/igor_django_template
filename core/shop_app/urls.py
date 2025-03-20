@@ -3,8 +3,7 @@ from shop_app import views
 from rest_framework import routers
 
 router = routers.SimpleRouter()
-
-router.register(r'products', views.ProductsViewSet)
+router.register(r'products', views.ProductViewSet)
 
 
 urlpatterns = [

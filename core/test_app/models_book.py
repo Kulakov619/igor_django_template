@@ -20,7 +20,10 @@ class Role(models.TextChoices):
 
 class User(AbstractUser):
     third_name = models.CharField("отчество", max_length=500, blank=True)
-    role = models.TextField(_('Role'), choices=Role.choices)
+    role = models.TextField(
+        _('Role'),
+        choices=Role.choices
+    )
 
     class Meta:
         verbose_name = _('пользователь')
